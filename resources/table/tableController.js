@@ -10,3 +10,13 @@ exports.createTable = async (req, res) => {
     console.error(err);
   }
 };
+
+exports.getTable = async (req, res) => {
+  try {
+    const data = await db("table").select("*");
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Not found" });
+  }
+};
