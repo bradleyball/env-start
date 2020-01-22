@@ -2,10 +2,10 @@ const db = require("../../data/dbConfig");
 
 exports.createTable = async (req, res) => {
   try {
-    const [id] = await db("table")
+    const data = await db("table")
       .returning("*")
       .insert(req.body);
-    res.json(id);
+    res.json(data);
   } catch (err) {
     console.error(err);
   }

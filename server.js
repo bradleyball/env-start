@@ -1,6 +1,11 @@
 require("dotenv").config();
-const server = require("express")();
+const express = require("express");
+const server = express();
 const tableRoute = require("./resources/table/tableRouter");
+
+//***************************** Middleware  *****************/
+
+server.use(express.json());
 
 //******************* Routers *****************************/
 
